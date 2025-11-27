@@ -1,7 +1,7 @@
 {
-  "name": "node-metrics",
+  "name": "light-node-metrics",
   "description": "Pacote de métricas e middlewares para Node.js/Express",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Cordeiro",

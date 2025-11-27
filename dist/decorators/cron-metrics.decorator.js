@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.cronJob = cronJob;
 const index_1 = require("../index");
-const instrumentation_1 = require("../shared/providers/metrics/instrumentation");
+const main_1 = require("../shared/providers/metrics/main");
 const cronJobsExecuted = index_1.meter.createCounter('cron_jobs_executed_total', {
     description: 'Total de execuções de cron jobs'
 });
@@ -19,7 +19,7 @@ function cronJob(jobName) {
     return function (target, propertyName, descriptor) {
         const originalMethod = descriptor.value;
         descriptor.value = async function (...args) {
-            const { apiName, environment } = (0, instrumentation_1.getEnvorimentVariables)();
+            const { apiName, environment } = (0, main_1.getEnvorimentVariables)();
             const labels = {
                 service_name: apiName,
                 environment,

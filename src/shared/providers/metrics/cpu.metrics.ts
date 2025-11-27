@@ -22,9 +22,10 @@ const cpuPercentGauge = meter.createObservableGauge(
     { description: 'Percentual de uso de CPU do processo Node.js' });
 
 
+let lastCpuUsage = process.cpuUsage();
+let lastTime = process.hrtime.bigint();
+
 cpuPercentGauge.addCallback(result => {
-    let lastCpuUsage = process.cpuUsage();
-    let lastTime = process.hrtime.bigint();
 
     const currentUsage = process.cpuUsage();
     const currentTime = process.hrtime.bigint();
@@ -44,7 +45,7 @@ cpuPercentGauge.addCallback(result => {
 let lastHostTimes = os.cpus().map(cpu => cpu.times);
 
 const hostCpuUsageGauge = meter.createObservableGauge(
-    'custom_telemetry_host_cpu_usage_percent', 
+    'custom_telemetry_host_cpu_usage_percent',
     { description: 'Percentual medio de uso de CPU no host/container' });
 hostCpuUsageGauge.addCallback(result => {
     const cpus = os.cpus();

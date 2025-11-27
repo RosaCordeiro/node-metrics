@@ -1,3 +1,3 @@
-export * from "./shared/providers/metrics/instrumentation";
-export * from "./middlewares/http.middleware";
-export * from "./decorators/cron.decorator";
+export * from "./shared/providers/metrics/main";
+export * from "./middlewares/http-metrics.middleware";
+export * from "./decorators/cron-metrics.decorator";
