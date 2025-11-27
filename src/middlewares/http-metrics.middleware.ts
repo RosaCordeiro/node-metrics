@@ -21,6 +21,7 @@ export const httpMetricsMiddleware = (req: Request, res: Response, next: NextFun
     const { apiName, environment } = getEnvorimentVariables();
 
     res.on('finish', () => {
+        console.log('finish')
         const duration = process.hrtime(start);
         const durationSeconds = duration[0] + duration[1] / 1e9;
 

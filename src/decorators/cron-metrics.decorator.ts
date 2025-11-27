@@ -1,4 +1,4 @@
-import { meter } from '../index';
+import { meter } from '../shared/providers/metrics/main';
 import { getEnvorimentVariables } from '../shared/providers/metrics/main';
 
 const cronJobsExecuted = meter.createCounter('cron_jobs_executed_total', {
