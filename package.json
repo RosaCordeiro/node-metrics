@@ -1,12 +1,17 @@
 {
   "name": "light-node-metrics",
   "description": "Pacote de métricas e middlewares para Node.js/Express",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Cordeiro",
   "license": "MIT",
-  "keywords": ["metrics", "middleware", "express", "monitoring"],
+  "keywords": [
+    "metrics",
+    "middleware",
+    "express",
+    "monitoring"
+  ],
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"
@@ -24,5 +29,7 @@
     "@types/node": "^20.0.0",
     "typescript": "^5.0.0"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }

@@ -1,7 +1,7 @@
 import { PrometheusExporter } from '@opentelemetry/exporter-prometheus';
 import { MeterProvider } from '@opentelemetry/sdk-metrics';
 import { metrics } from '@opentelemetry/api';
-import { Request, Response } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 
 function getEnvorimentVariables() {
     const apiName = process.env.APINAME;
@@ -28,6 +28,6 @@ const meter = metrics.getMeter(getEnvorimentVariables().apiName);
 
 export { meter, getEnvorimentVariables }
 
-export const metricsHandler = async (req: Request, res: Response) => {
-    return prometheusExporter.getMetricsRequestHandler(req, res);
+export const metricsHandler: RequestHandler = (req: Request, res: Response) => {
+    return prometheusExporter.getMetricsRequestHandler(req, res)
 };

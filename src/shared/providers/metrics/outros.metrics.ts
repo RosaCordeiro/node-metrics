@@ -1,4 +1,4 @@
-import { monitorEventLoopDelay } from "perf_hooks";
+import { monitorEventLoopDelay, PerformanceObserver } from "perf_hooks";
 import { getEnvorimentVariables, meter } from "./main";
 import fs from 'fs';
 
